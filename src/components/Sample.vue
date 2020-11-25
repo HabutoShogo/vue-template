@@ -1,12 +1,13 @@
 <template>
   <div class="sample">
     {{ str }}
+    <button @click="changeText">test</button>
   </div>
 </template>
 
 <script>
 
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'Sample',
@@ -14,6 +15,11 @@ export default {
     ...mapState({
       str: state => state.sample.str
     }),
+  },
+  methods: {
+    ...mapMutations('sample', [
+      'changeText'
+    ])
   }
 }
 </script>
